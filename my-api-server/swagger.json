@@ -1,0 +1,111 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "NEW FA API",
+    "description": "API documentation using Swagger"
+  },
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/data": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Get all data",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Data"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dataDefectCode/{line_cd}": {
+      "get": {
+        "tags": [
+          "Defect Module"
+        ],
+        "summary": "Get defect code by line",
+        "parameters": [
+          {
+            "name": "line_cd",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Data"
+            }
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    },
+    
+    "/dataoee": {
+      "post": {
+        "tags": [
+          "OEE Data"
+        ],
+        "summary": "Create new data",
+        "parameters": [
+          {
+            "name": "oee data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data created successfully"
+          }
+        }
+      }
+    }
+
+    
+  },
+  
+  "definitions": {
+    "Data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "DataInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  }
+}

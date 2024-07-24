@@ -1,0 +1,20 @@
+const express = require('express');
+const router = express.Router();
+const dataController = require('../controllers/dataController');
+router.get('/dataShiftHour', dataController.getShiftHour);
+router.get('/dataDefectCode/:line_cd', dataController.getDefectCode);
+router.get('/dataGetHour', dataController.GET_HOUR);
+router.get('/dataGettarget', dataController.NEW_GET_TARGET);
+router.get('/dataGetlossbyhouse', dataController.GetLossByHouse);
+router.get('/dataProgressA', dataController.progressbarA);
+router.get('/dataGetDataAvailabillty', dataController.GetDataAvailabillty);
+router.get('/dataGetAcctarget', dataController.getAccTarget);
+router.get('/dataGetSpeedLoss', dataController.getSpeedLoss);
+router.get('/dataDataTimestart', dataController.getDateTimeStart);
+router.get('/dataDetailByHouse', dataController.getProduction_actual_detailByHour);
+router.get('/dataDetailByShift', dataController.getProduction_actual_detailByShift);
+router.get('/dataGetStd_CT', dataController.GetStd_job);
+router.get('/dataGetPerformance', dataController.GetActualPerformance);
+router.get('/dataGetWorkingTime', dataController.GetWorkingTime);
+
+module.exports = router;
